@@ -27,29 +27,61 @@ const bibleDataEnOBSStory = {
   uniqueID: "uW.OBS.en"
 }
 
-export const langExtraInfo = {
-  as: { engName: "assamese", name: "অসমীয়া", code3: "asm", version: "irv" },
-  bn: { engName: "bengali", name: "বাঙালি", code3: "ben", version: "irv" },
-  en: { engName: "english", name: "English", code3: "eng", version: "esv" },
-  gu: { engName: "gujarati", name: "ગુજરાતી", code3: "guj", version: "irv" },
-  he: { engName: "hebrew, ancient", name: "עברית, עתיקה", code3: "hbo" },
-  hi: { engName: "hindi", name: "हिंदी", code3: "hin", version: "irv" },
-  kn: { engName: "kannada", name: "ಕನ್ನಡ", code3: "kan", version: "irv" },
-  ml: { engName: "malayalam", name: "മലയാളം", code3: "mal", version: "irv" },
-  mr: { engName: "marathi", name: "मराठी", code3: "mar", version: "irv" },
-  ne: { engName: "nepali", name: "नेपाली", code3: "nep", version: "ulb" },
-  pu: { engName: "punjabi", name: "ਪੰਜਾਬੀ", code3: "pan", version: "irv" },
-  ta: { engName: "tamil", name: "தமிழ்", code3: "tam", version: "irv" },
-  te: { engName: "telugu", name: "తెలుగు", code3: "tel", version: "irv" },
-  ur: { engName: "urdu", name: "उर्दू", code3: "urd", version: "irv" }
+export const lang2to3letters = {
+  as: "asm",
+  bn: "ben",
+  en: "eng",
+  gu: "guj",
+  he: "hbo",
+  hi: "hin",
+  kn: "kan",
+  ml: "mal",
+  mr: "mar",
+  ne: "nep",
+  pu: "pan",
+  ta: "tam",
+  te: "tel",
+  ur: "urd",
 }
+
+export const langExtraInfo = {
+  asm: { engName: "assamese", name: "অসমীয়া", iso639: "as" }, 
+  bgl: { engName: "baghlayani", name: "Baghlayani" }, 
+  ben: { engName: "bengali", name: "বাঙালি", iso639: "bn" }, 
+  bil: { engName: "bilaspuri", name: "बिलासपुरी" }, 
+  boc: { engName: "bommala", name: "Bommala" }, 
+  dgo: { engName: "dogri", name: "डोगरी" }, 
+  dom: { engName: "dommri", name: "Dommri",  }, 
+  eng: { engName: "english", name: "English", iso639: "en", version: "esv" }, 
+  guj: { engName: "gujarati", name: "ગુજરાતી", iso639: "gu" }, 
+  har: { engName: "haryanvi", name: "हरियाणवी" }, 
+  hbo: { engName: "hebrew, ancient", name: "עברית, עתיקה", iso639: "he" }, 
+  hin: { engName: "hindi", name: "हिंदी", iso639: "hi" }, 
+  kfr: { engName: "kachhi", name: "કચ્છી" }, 
+  kan: { engName: "kannada", name: "ಕನ್ನಡ", iso639: "kn" }, 
+  gjk: { engName: "koli-kachhi", name: "કોલી કચ્છી" }, 
+  kon: { engName: "kongaru", name: "Kongaru" }, 
+  kex: { engName: "kukna", name: "કુકના" }, 
+  mal: { engName: "malayalam", name: "മലയാളം", iso639: "ml" }, 
+  mar: { engName: "marathi", name: "मराठी", iso639: "mr" }, 
+  nag: { engName: "nagamese", name: "Nagamese" }, 
+  nep: { engName: "nepali", name: "नेपाली", iso639: "ne", version: "ulb" }, 
+  ory: { engName: "odia", name: "ଓଡିଆ" }, 
+  pan: { engName: "punjabi", name: "ਪੰਜਾਬੀ", iso639: "pu" }, 
+  tam: { engName: "tamil", name: "தமிழ்", iso639: "ta" }, 
+  tel: { engName: "telugu", name: "తెలుగు", iso639: "te" }, 
+  urd: { engName: "urdu", name: "उर्दू", iso639: "ur" }, 
+  vav: { engName: "varli-davri", name: "વારલી" } 
+}
+
+export const navLangList = [ "en", "hi", "kn", "ml" ]
 
 export const selectAudioBible = (lang) => `audio-bible-vachan-${lang}` 
 
 export const useSerie = (lang,serId) => {
   console.log(lang)
-  const useCode3 = langExtraInfo[lang].code3
-  const useVersion = langExtraInfo[lang].version
+  const useCode3 = lang2to3letters[lang]
+  const useVersion = langExtraInfo[lang]?.version || "irv"
   const usePath = "https://vachan.sgp1.cdn.digitaloceanspaces.com/audio_bibles/"
   return {
     "bibleBookList": fullBibleList,
