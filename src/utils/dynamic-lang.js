@@ -1,16 +1,5 @@
 import { obsStoryList } from '../constants/obsHierarchy'
-import { gospelOfJohnObj } from '../constants/naviChaptersJohn'
-import { fullBibleList } from '../constants/bibleData'
-import { 
-  bibleDataEN, 
-  bibleDataDE_ML_1912,
-  bibleDataES_WP,
-  bibleDataFR_WP,
-  bibleDataHU_WP,
-  bibleDataLU_WP,
-  bibleDataRO_WP,
-  bibleDataPT_BR_WP
-} from '../constants/bibleData'
+import { fullBibleList, newTestamentList } from '../constants/bibleData'
 
 const bibleDataEnOBSStory = {
   freeType: false,
@@ -44,34 +33,34 @@ export const lang2to3letters = {
   ur: "urd",
 }
 
-export const langExtraInfo = {
-  asm: { engName: "assamese", name: "অসমীয়া", iso639: "as" }, 
-  bgl: { engName: "baghlayani", name: "Baghlayani" }, 
-  ben: { engName: "bengali", name: "বাঙালি", iso639: "bn" }, 
-  bil: { engName: "bilaspuri", name: "बिलासपुरी" }, 
-  boc: { engName: "bommala", name: "Bommala" }, 
-  dgo: { engName: "dogri", name: "डोगरी" }, 
-  dom: { engName: "dommri", name: "Dommri",  }, 
+export const contentLangData = {
+  asm: { engName: "assamese", name: "অসমীয়া", iso639: "as", version: "irv" }, 
+  bgl: { engName: "baghlayani", name: "Baghlayani", books: "NT" }, 
+  ben: { engName: "bengali", name: "বাঙালি", iso639: "bn", version: "irv" }, 
+  kfs: { engName: "bilaspuri", name: "बिलासपुरी", version: "irv", books: "NT" }, 
+  boc: { engName: "bommala", name: "Bommala", books: "NT" }, 
+  dgo: { engName: "dogri", name: "डोगरी", version: "dsv", books: "NT" }, 
+  dom: { engName: "dommri", name: "Dommri", books: "NT" }, 
   eng: { engName: "english", name: "English", iso639: "en", version: "esv" }, 
-  guj: { engName: "gujarati", name: "ગુજરાતી", iso639: "gu" }, 
-  har: { engName: "haryanvi", name: "हरियाणवी" }, 
-  hbo: { engName: "hebrew, ancient", name: "עברית, עתיקה", iso639: "he" }, 
-  hin: { engName: "hindi", name: "हिंदी", iso639: "hi" }, 
-  kfr: { engName: "kachhi", name: "કચ્છી" }, 
-  kan: { engName: "kannada", name: "ಕನ್ನಡ", iso639: "kn" }, 
-  gjk: { engName: "koli-kachhi", name: "કોલી કચ્છી" }, 
-  kon: { engName: "kongaru", name: "Kongaru" }, 
-  kex: { engName: "kukna", name: "કુકના" }, 
-  mal: { engName: "malayalam", name: "മലയാളം", iso639: "ml" }, 
-  mar: { engName: "marathi", name: "मराठी", iso639: "mr" }, 
-  nag: { engName: "nagamese", name: "Nagamese" }, 
+  guj: { engName: "gujarati", name: "ગુજરાતી", iso639: "gu", version: "irv" }, 
+  har: { engName: "haryanvi", name: "हरियाणवी", version: "hb" }, 
+  // hbo: { engName: "hebrew, ancient", name: "עברית, עתיקה", iso639: "he" }, 
+  hin: { engName: "hindi", name: "हिंदी", iso639: "hi", version: "irv" }, 
+  kar: { engName: "kachha", name: "कच्छ", books: "NT" },
+  kan: { engName: "kannada", name: "ಕನ್ನಡ", iso639: "kn", version: "irv" }, 
+  gjk: { engName: "koli-kachhi", name: "કોલી કચ્છી", books: "NT" }, 
+  kon: { engName: "kongaru", name: "Kongaru", books: "NT" }, 
+  mal: { engName: "malayalam", name: "മലയാളം", iso639: "ml", version: "irv" }, 
+  mar: { engName: "marathi", name: "मराठी", iso639: "mr", version: "irv" }, 
+  may: { engName: "mayla-marathi", name: " मायला मराठी", books: "NT"}, 
+  nag: { engName: "nagamese", name: "Nagamese", version: "isv", books: "NT" }, 
   nep: { engName: "nepali", name: "नेपाली", iso639: "ne", version: "ulb" }, 
-  ory: { engName: "odia", name: "ଓଡିଆ" }, 
-  pan: { engName: "punjabi", name: "ਪੰਜਾਬੀ", iso639: "pu" }, 
-  tam: { engName: "tamil", name: "தமிழ்", iso639: "ta" }, 
-  tel: { engName: "telugu", name: "తెలుగు", iso639: "te" }, 
-  urd: { engName: "urdu", name: "उर्दू", iso639: "ur" }, 
-  vav: { engName: "varli-davri", name: "વારલી" } 
+  ory: { engName: "odia", name: "ଓଡିଆ", version: "irv" }, 
+  pan: { engName: "punjabi", name: "ਪੰਜਾਬੀ", iso639: "pu", version: "irv" }, 
+  tam: { engName: "tamil", name: "தமிழ்", iso639: "ta", version: "irv" }, 
+  tel: { engName: "telugu", name: "తెలుగు", iso639: "te", version: "irv" }, 
+  urd: { engName: "urdu", name: "उर्दू", iso639: "ur", version: "irv" }, 
+  vav: { engName: "varli-davri", name: "વારલી", books: "NT" } 
 }
 
 export const navLangList = [ "en", "hi", "kn", "ml" ]
@@ -79,14 +68,13 @@ export const navLangList = [ "en", "hi", "kn", "ml" ]
 export const selectAudioBible = (lang) => `audio-bible-vachan-${lang}` 
 
 export const useSerie = (lang,serId) => {
-  console.log(lang)
-  const useCode3 = lang2to3letters[lang]
-  const useVersion = langExtraInfo[lang]?.version || "irv"
+  const useVersion = contentLangData[lang]?.version
+  const useLimitedList = contentLangData[lang]?.books === "NT"
   const usePath = "https://vachan.sgp1.cdn.digitaloceanspaces.com/audio_bibles/"
   return {
-    "bibleBookList": fullBibleList,
+    "bibleBookList": useLimitedList ? newTestamentList : fullBibleList,
     "wordProjectType": true,
-    "curPath": `${usePath}${useCode3}/${useVersion}/`,
+    "curPath": useVersion ? `${usePath}${lang}/${useVersion}/` : `${usePath}${lang}/`,
     "title": "Audio Bibel",
     uniqueID: `Vachan-${lang}`,
     "description": "Public domain",

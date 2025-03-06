@@ -20,7 +20,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: false,
-    fallbackLng: 'en',
+    fallbackLng: 'eng',
     supportedLngs: langsInCountry["in"],
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
@@ -40,7 +40,7 @@ i18n
     },
 
     resources: {
-      en: { translation: {...enText} },
+      eng: { translation: {...enText} },
       de: { translation: {...deText} },
       es: { translation: {...esText} },
       pt_BR: { translation: {...ptBRText} },
