@@ -28,7 +28,6 @@ const HomeView = (props) => {
     const useLevel0 = obj?.ep?.topIdStr
     const useCh = obj?.ep?.id
     const useBk = obj?.ep?.bk
-    console.log(obj)
     const curSerie = {
       ...useSerie(lng,useLevel0),
       language: serieLang(useLevel0),

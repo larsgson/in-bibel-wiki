@@ -24,26 +24,21 @@ import { useSerie, serieLang, serieNaviType } from '../utils/dynamic-lang'
 const preNav = "https://img.bibel.wiki/navIcons/"
 
 const topObjList = {
-  // "en-jhn-serie": {
-  //   title: "Gospel of John",
-  //   imgSrc: preNav + "VB-John1v1.png",
-  //   subtitle: "Video serie"
-  // },
-  // "en-jhn-plan": {
-  //   title: "Gospel of John",
-  //   imgSrc: preNav + "VB-John1v3.png",
-  //   subtitle: "daily - in 90 days"
-  // },
-  "en-audio-bible-WEB": {
-    title: "Audio Bible",
-    imgSrc: preNav + "40_Mt_08_12.png",
-    subtitle: "with easy navigation"
+  "en-jhn-serie": {
+    title: "Gospel of John",
+    imgSrc: preNav + "VB-John1v1.png",
+    subtitle: "Video serie"
   },
-  // "en-audio-OBS": {
-  //   title: "Audio Bible Stories",
-  //   imgSrc: preNav + "Bible_NT.png",
-  //   subtitle: "with easy navigation"
-  // }
+  "en-jhn-plan": {
+    title: "Gospel of John",
+    imgSrc: preNav + "VB-John1v3.png",
+    subtitle: "daily - in 90 days"
+  },
+  "en-audio-OBS": {
+    title: "Audio Bible Stories",
+    imgSrc: preNav + "Bible_NT.png",
+    subtitle: "with easy navigation"
+  }
 }
 
 const SerieGridBar = (props) => {
