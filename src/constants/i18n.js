@@ -4,7 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 import { DateTime } from 'luxon';
 import { enText, deText, esText, ptBRText } from '@bibel-wiki/i18n'
-import { langsInCountry } from './countries'
+import { countryData } from './countries'
 
 i18n
   // i18next-http-backend
@@ -20,8 +20,8 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     debug: false,
-    fallbackLng: 'eng',
-    supportedLngs: langsInCountry["in"],
+    fallbackLng: 'en',
+    supportedLngs: countryData["in"]?.langsInCountry,
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
       format: (value, format, lng) => {
@@ -40,7 +40,7 @@ i18n
     },
 
     resources: {
-      eng: { translation: {...enText} },
+      en: { translation: {...enText} },
       de: { translation: {...deText} },
       es: { translation: {...esText} },
       pt_BR: { translation: {...ptBRText} },
