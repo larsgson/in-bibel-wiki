@@ -61,7 +61,10 @@ export default function SettingsView() {
           disablePortal
           options={navLangOptions}
           getOptionDisabled={(option) =>option?.value !== "en"}
-          sx={{ width: 300 }}
+          sx={{ 
+            width: 300,
+            backgroundColor: "lightgrey"
+          }}
           renderInput={(params) => <TextField {...params} label="Language" />}
           value={getLangOptionsObj("en")}
           onChange={(event, newValue) => {
@@ -77,7 +80,10 @@ export default function SettingsView() {
           disablePortal
           options={availableLangOptions}
           getOptionDisabled={(option) =>option?.value === i18n.language}
-          sx={{ width: 300 }}
+          sx={{ 
+            width: 300,
+            backgroundColor: "lightgrey"
+          }}
           renderInput={(params) => <TextField {...params} label="Language" />}
           value={getLangOptionsObj(i18n.language)}
           onChange={(event, newValue) => {
