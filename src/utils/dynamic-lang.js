@@ -1,5 +1,6 @@
 import { obsStoryList } from '../constants/obsHierarchy'
 import { fullBibleList, newTestamentList } from '../constants/bibleData'
+import { lang2to3letters } from '../constants/languages'
 import { gospelOfJohnObj } from '../constants/naviChaptersJohn'
 
 const bibleDataEnOBSStory = {
@@ -15,23 +16,6 @@ const bibleDataEnOBSStory = {
   mediaType: "audio",
   episodeList: obsStoryList,
   uniqueID: "uW.OBS.en"
-}
-
-export const lang2to3letters = {
-  as: "asm",
-  bn: "ben",
-  en: "eng",
-  gu: "guj",
-  he: "hbo",
-  hi: "hin",
-  kn: "kan",
-  ml: "mal",
-  mr: "mar",
-  ne: "nep",
-  pu: "pan",
-  ta: "tam",
-  te: "tel",
-  ur: "urd",
 }
 
 export const langVersion = {
@@ -64,6 +48,8 @@ export const useSerie = (lang,serId) => {
     "en-jhn-plan": "videoPlan",
     "en-audio-OBS": bibleDataEnOBSStory,
   }
+  const is3LetterLang = (lang.length > 2)
+  const curLang = is3LetterLang ? lang : lang2to3letters[lang]
   if (checkObj[serId]) return checkObj[serId]
   else {
     const useVersion = langVersion[lang]
@@ -72,7 +58,7 @@ export const useSerie = (lang,serId) => {
     return {
       "bibleBookList": useLimitedList ? newTestamentList : fullBibleList,
       "wordProjectType": true,
-      "curPath": useVersion ? `${usePath}${lang}/${useVersion}/` : `${usePath}${lang}/`,
+      "curPath": useVersion ? `${usePath}${curLang}/${useVersion}/` : `${usePath}${curLang}/`,
       "title": "Audio Bibel",
       uniqueID: `Vachan-${lang}`,
       "description": "Public domain",
