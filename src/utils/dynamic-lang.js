@@ -36,11 +36,28 @@ export const langVersion = {
   ur: "irv", 
 }
 
+export const selectAudioBible = (lang) => 
+lang === "en" 
+  ? "en-audio-bible-WEB" 
+  : lang === "es" 
+  ? "es-audio-bible-WordProject" 
+  : lang === "fr" 
+  ? "fr-audio-bible-WordProject" 
+  : lang === "hu" 
+  ? "hu-audio-bible-WordProject" 
+  : lang === "lu" 
+  ? "lu-audio-bible-WordProject" 
+  : lang === "ro" 
+  ? "ro-audio-bible-WordProject" 
+  : lang === "es" 
+  ? "es-audio-bible-WordProject" 
+  : lang === "de" 
+  ? "de-audio-bible-ML"
+  : `audio-bible-vachan-${lang}` 
+
 export const limitToNT = [ "bgl", "kfs", "boc", "dgo", "dom", "kar", "gjk", "kon", "may", "nag", "vav" ]
 
 export const navLangList = [ "en", "hi", "kn", "ml" ]
-
-export const selectAudioBible = (lang) => `audio-bible-vachan-${lang}` 
 
 export const useSerie = (lang,serId) => {
   const checkObj = {
@@ -57,7 +74,7 @@ export const useSerie = (lang,serId) => {
     const usePath = "https://vachan.sgp1.cdn.digitaloceanspaces.com/audio_bibles/"
     return {
       "bibleBookList": useLimitedList ? newTestamentList : fullBibleList,
-      "wordProjectType": true,
+      "vachanServerType": true,
       "curPath": useVersion ? `${usePath}${curLang}/${useVersion}/` : `${usePath}${curLang}/`,
       "title": "Audio Bibel",
       uniqueID: `Vachan-${lang}`,
@@ -71,17 +88,6 @@ export const useSerie = (lang,serId) => {
     }
   }
 }
-  // "de-jhn-serie": gospelOfJohnObj,
-  // "en-jhn-serie": gospelOfJohnObj,
-  // "en-audio-OBS": bibleDataEnOBSStory,
-  // "de-audio-bible-ML": bibleDataDE_ML_1912,
-  // "en-audio-bible-WEB": bibleDataEN,
-  // "es-audio-bible-WordProject": bibleDataES_WP,
-  // "pt-br-audio-bible-WordProject": bibleDataPT_BR_WP,
-  // "fr-audio-bible-WordProject": bibleDataFR_WP,
-  // "hu-audio-bible-WordProject": bibleDataHU_WP,
-  // "lu-audio-bible-WordProject": bibleDataLU_WP,
-  // "ro-audio-bible-WordProject": bibleDataRO_WP,
 
 export const serieLang = (id) => {
   const checkObj = {
@@ -102,6 +108,7 @@ export const serieLang = (id) => {
   // return checkObj[id]
   return "en"
 }
+
 export const serieNaviType =(id) => {
   const checkObj = {
     "en-audio-bible-WEB": "audioBible",

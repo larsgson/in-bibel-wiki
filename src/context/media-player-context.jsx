@@ -16,30 +16,30 @@ const MediaPlayerProvider = (props) => {
   const [isPaused, setIsPaused] = useState(false)
   const [imgPos, setImgPos] = useState({});
 
-  // const fetchJSONDataFrom = useCallback(async (inx) => {
-  //   const response = await fetch(`data/img_pos${pad(inx +1)}.json`, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json"
-  //     }
-  //   });
-  //   const data = await response.json();
-  //   setImgPos((prev) => ({
-  //     ...prev,
-  //     [inx]: data,
-  //   }));
-  // }, []);
+  const fetchJSONDataFrom = useCallback(async (inx) => {
+    const response = await fetch(`data/img_pos${pad(inx +1)}.json`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    });
+    const data = await response.json();
+    setImgPos((prev) => ({
+      ...prev,
+      [inx]: data,
+    }));
+  }, []);
 
-  // useEffect(() => {
-  //   const getDataForAllStories = async () => {
-  //     const maxStories = 50
-  //     for(let i=0; i < maxStories; i++) {
-  //       // Wait for each task to finish
-  //       await fetchJSONDataFrom(i);
-  //     }      
-  //   }
-  //   getDataForAllStories()
-  // }, [fetchJSONDataFrom]);
+  useEffect(() => {
+    const getDataForAllStories = async () => {
+      const maxStories = 50
+      for(let i=0; i < maxStories; i++) {
+        // Wait for each task to finish
+        await fetchJSONDataFrom(i);
+      }      
+    }
+    getDataForAllStories()
+  }, [fetchJSONDataFrom]);
 
   useEffect(() => {
     const getNavHist = async () => {
@@ -99,7 +99,7 @@ console.log("onFinishedPlaying")
       const checkMs = parseInt(checkObj.pos) * 1000
       if (msPos>=checkMs) retImgSrc = checkObj.img
     })
-    return `https://img.bibel.wiki/obsIcons/obs-en-${retImgSrc}.mp4`
+    return `https://storage.googleapis.com/img.bibel.wiki/obsIcons/obs-en-${retImgSrc}.mp4`
   }
 
   const onPlaying = (curPos) => {
